@@ -1,94 +1,219 @@
-import React from "react";
+import React, { useState } from "react";
 
-const HiringRequestSection = () => {
+const HiringRequest = () => {
+  const [formData, setFormData] = useState({
+    contactName: "",
+    companyName: "",
+    email: "",
+    phone: "",
+    country: "",
+    city: "",
+    role: "",
+    employmentType: [],
+    skillLevel: [],
+    positionType: "",
+    budget: "",
+    additionalInfo: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+
+    if (type === "checkbox") {
+      setFormData((prevData) => ({
+        ...prevData,
+        [name]: checked
+          ? [...prevData[name], value]
+          : prevData[name].filter((item) => item !== value),
+      }));
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData);
+  };
+
   return (
-    <section className="bg-gray-50 py-10 px-6 flex flex-col md:flex-row items-start">
-      {/* Sticky Left Section */}
-      <div className="w-full md:w-1/3 sticky top-6">
-        <button className="bg-white text-black px-6 py-3 rounded-lg text-lg  hover:bg-blue-700">
+    <div className="flex flex-row justify-between mx-20 my-24 ">
+      <div className="flex flex-col w-[38%] items-start">
+        <div className="flex items-center justify-center px-4 py-1 border-Light_Periwinkle border-2 bg-white rounded-full">
           Contact Us
-        </button>
-        <h2 className="text-2xl font-semibold text-gray-800">Hiring Request</h2>
-        <p className="text-gray-600 mt-4">
-          Unlock the potewntial of your business with top-tier
-          <br /> professionals.We provide custom hiring solutions for every
-          <br /> industry,ensuring you to find the perfect fit.
+        </div>
+        <h1 className="text-5xl font-sans font-medium mt-3">Hiring Request</h1>
+        <p className="text-lg font-sans font-light mt-4">
+          Unlock the potential of your business with top-tier professionals. We
+          provide custom hiring solutions for every industry, ensuring you find
+          the perfect fit.
         </p>
       </div>
 
-      {/* Form Section */}
-      <div className="w-full md:w-2/3 mt-6 md:mt-0 md:ml-10">
-        <form className="space-y-6">
-          <div className="flex flex-col md:flex-row md:space-x-4">
+      <div className="w-[52%] bg-blue-400 p-4 rounded-lg shadow-md max-h-[600px] overflow-y-scroll scrollbar-hide">
+        <form
+          onSubmit={handleSubmit}
+          className="space-y-4 bg-white p-6 rounded-lg"
+        >
+          <div className="flex gap-4">
+            <div className="flex-1">
+              <label className="block font-rubik font-normal text-base text-Charcoal">
+                Contact Name*
+              </label>
+              <input
+                type="text"
+                name="contactName"
+                onChange={handleChange}
+                className="w-full border border-gray-300 rounded-md p-2"
+                required
+              />
+            </div>
+            <div className="flex-1">
+              <label className="block font-rubik font-normal text-base text-Charcoal">
+                Company Name*
+              </label>
+              <input
+                type="text"
+                name="companyName"
+                onChange={handleChange}
+                className="w-full border border-gray-300 rounded-md p-2"
+                required
+              />
+            </div>
+          </div>
+
+          <div className="flex gap-4">
+            <div className="flex-1">
+              <label className="block font-rubik font-normal text-base text-Charcoal">
+                Email Address*
+              </label>
+              <input
+                type="email"
+                name="email"
+                onChange={handleChange}
+                className="w-full border border-gray-300 rounded-md p-2"
+                required
+              />
+            </div>
+            <div className="flex-1">
+              <label className="block font-rubik font-normal text-base text-Charcoal">
+                Phone No*
+              </label>
+              <input
+                type="tel"
+                name="phone"
+                onChange={handleChange}
+                className="w-full border border-gray-300 rounded-md p-2"
+                required
+              />
+            </div>
+          </div>
+
+          <div className="flex gap-4">
+            <div className="flex-1">
+              <label className="block font-rubik font-normal text-base text-Charcoal">
+                Country*
+              </label>
+              <input
+                type="text"
+                name="country"
+                onChange={handleChange}
+                className="w-full border border-gray-300 rounded-md p-2"
+                required
+              />
+            </div>
+            <div className="flex-1">
+              <label className="block font-rubik font-normal text-base text-Charcoal">
+                City*
+              </label>
+              <input
+                type="text"
+                name="city"
+                onChange={handleChange}
+                className="w-full border border-gray-300 rounded-md p-2"
+                required
+              />
+            </div>
+          </div>
+
+          <div>
+            <label className="block font-rubik font-normal text-base text-Charcoal">
+              Employment Type*
+            </label>
+            {["Full-time Role", "Part-time Role", "Internship Role"].map(
+              (type) => (
+                <label key={type} className="inline-flex items-center mr-4">
+                  <input
+                    type="checkbox"
+                    name="employmentType"
+                    value={type}
+                    onChange={handleChange}
+                    className="mr-2"
+                  />
+                  {type}
+                </label>
+              )
+            )}
+          </div>
+
+          <div>
+            <label className="block font-rubik font-normal text-base text-Charcoal">
+              Skill Level*
+            </label>
+            {["Intermediate Level", "Junior Level", "Senior Level"].map(
+              (level) => (
+                <label key={level} className="inline-flex items-center mr-4">
+                  <input
+                    type="checkbox"
+                    name="skillLevel"
+                    value={level}
+                    onChange={handleChange}
+                    className="mr-2"
+                  />
+                  {level}
+                </label>
+              )
+            )}
+          </div>
+
+          <div>
+            <label className="block font-rubik font-normal text-base text-Charcoal">
+              What’s your budget?*
+            </label>
             <input
-              type="text"
-              placeholder="Contact Name"
-              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <input
-              type="text"
-              placeholder="Company Name"
-              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              type="number"
+              name="budget"
+              onChange={handleChange}
+              className="w-full border border-gray-300 rounded-md p-2"
+              required
             />
           </div>
-          <div className="flex flex-col md:flex-row md:space-x-4">
-            <input
-              type="email"
-              placeholder="Email"
-              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <input
-              type="tel"
-              placeholder="Phone Number"
-              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
+
+          <div>
+            <label className="block font-rubik font-normal text-base text-Charcoal">
+              Additional Information*
+            </label>
+            <textarea
+              name="additionalInfo"
+              rows={4}
+              onChange={handleChange}
+              className="w-full border border-gray-300 rounded-md p-2"
+              required
+            ></textarea>
           </div>
-          <div className="flex flex-col md:flex-row md:space-x-4">
-            <input
-              type="text"
-              placeholder="Country"
-              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <input
-              type="text"
-              placeholder="City"
-              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
+
+          <div>
+            <button
+              type="submit"
+              className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-700"
+            >
+              Submit
+            </button>
           </div>
-          <input
-            type="text"
-            placeholder="Role Selection"
-            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-          <input
-            type="text"
-            placeholder="Employment Type"
-            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-          <input
-            type="text"
-            placeholder="Are Positions Onsite?"
-            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-          <input
-            type="text"
-            placeholder="Budget Selection"
-            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-          <textarea
-            placeholder="Additional Information"
-            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-          ></textarea>
-          <button
-            type="submit"
-            className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg text-lg hover:bg-blue-700"
-          >
-            Submit
-          </button>
         </form>
       </div>
-    </section>
+    </div>
   );
 };
 
-export default HiringRequestSection;
+export default HiringRequest;

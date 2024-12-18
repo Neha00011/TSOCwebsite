@@ -5,21 +5,27 @@ import img3 from "../assets/Image3.png";
 
 const ImageRow = () => {
   return (
-    <div className="py-10 px-6 grid grid-cols-1 sm:grid-cols-3 gap-6">
+    <div className="  grid grid-cols-1 sm:grid-cols-3 gap-1 alignitems-center justify-center ml-20">
       <img
         src={img1}
         alt="Placeholder 1"
-        className="w-full h-auto rounded-lg shadow-md"
+        className=" rounded-lg shadow-md "
+        height="500px"
+        width="420px"
       />
       <img
         src={img2}
         alt="Placeholder 2"
-        className="w-full h-auto rounded-lg shadow-md"
+        className=" rounded-lg shadow-md "
+        height="500px"
+        width="420px"
       />
       <img
         src={img3}
         alt="Placeholder 3"
-        className="w-full h-auto rounded-lg shadow-md"
+        className=" rounded-lg shadow-md "
+        height="500px"
+        width="420px"
       />
     </div>
   );

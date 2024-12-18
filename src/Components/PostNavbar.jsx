@@ -1,13 +1,13 @@
 import React from "react";
 const PostHeader = () => {
   return (
-    <header className="bg-gray-100 py-10 px-6 text-center">
-      <h1 className="text-3xl font-bold text-gray-800 leading-tight">
+    <header className=" py-10 px-6 text-center">
+      <h1 className="text-6xl font-medium text-gray-800 leading-tight">
         Hire Top Talents,
         <br />
         Accelerate Your Growth
       </h1>
-      <p className="text-gray-600 mt-4 text-lg">
+      <p className="text-gray-400 mt-4 text-lg">
         Find the right professionals to elevate your business.From temporary
         staffing throw new Error
         <br />

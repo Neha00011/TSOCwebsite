@@ -9,32 +9,52 @@ const HireFromUsSection = () => {
         <img
           src={hire}
           alt="Hire from us"
-          className="w-full h-auto rounded-lg shadow-md"
+          className=" rounded-lg ml-20 shadow-md"
+          height="400px"
+          width="500px"
         />
       </div>
       <div className="w-full md:w-1/2 mt-6 md:mt-0 md:ml-10">
-        <h2 className="text-2xl font-semibold text-blue-600">BENEFITS</h2>
-        <h3 className="text-xl text-gray-600 mt-2">Why hire From Us?</h3>
-        <p className="text-gray-600 mt-4">
+        <h2 className="text-2xl font-semibold text-blue-600 ml-5">BENEFITS</h2>
+        <h3 className="text-4xl font-semibold text-black mt-2 ml-5">
+          Why hire From Us?
+        </h3>
+        <p className="text-gray-600 mt-4 ml-5 ">
           Together we are making education accessible and transformative.
           <br />
           Join us in shaping a brighter future.
         </p>
-        <ul className="list-disc list-inside mt-4 text-gray-700">
-          <li>
-            <img src={check} alt="check" className="w-6 h-6 inline" />
+        <ul className=" list-inside mt-4 text-black">
+          <li className="mb-4">
+            <img
+              src={check}
+              alt="check"
+              className="w-6 h-6 inline ml-2 mr-3 "
+            />
             Trained to meet Industry Standard
           </li>
-          <li>
-            <img src={check} alt="check" className="w-6 h-6 inline" />
+          <li className="mb-4">
+            <img
+              src={check}
+              alt="check"
+              className="w-6 h-6 inline ml-2 mr-3  "
+            />
             Independently pre-assessed
           </li>
-          <li>
-            <img src={check} alt="check" className="w-6 h-6 inline" />
+          <li className="mb-4">
+            <img
+              src={check}
+              alt="check"
+              className="w-6 h-6 inline ml-2 mr-3 "
+            />
             Immediate availability
           </li>
-          <li>
-            <img src={check} alt="check" className="w-6 h-6 inline" />
+          <li className="mb-4">
+            <img
+              src={check}
+              alt="check"
+              className="w-6 h-6 inline ml-2 mr-3 "
+            />
             Hassle Free Experience
           </li>
         </ul>

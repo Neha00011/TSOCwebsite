@@ -4,28 +4,43 @@ import backarrow from "../assets/backarrow.png";
 
 const Navbar = () => {
   return (
-    <nav className="bg-white shadow-md py-4 px-6 flex justify-between items-center">
+    <nav className=" flex justify-between items-center h-20 margin-10">
       {/* Logo */}
-      <div>
-        <img src={logo} alt="logo" />
+      <div className=" align-center py-20 px-20">
+        <img src={logo} alt="logo" height="40px" width="144px" />
       </div>
 
       {/* Navigation Links */}
-      <ul className="flex space-x-8 text-gray-700">
-        <li className="hover:text-blue-500 cursor-pointer">Mentors</li>
-        <li className="hover:text-blue-500 cursor-pointer">How it Works</li>
-        <li className="hover:text-blue-500 cursor-pointer">projects</li>
-        <li className="hover:text-blue-500 cursor-pointer">Blog</li>
-        <li className="hover:text-blue-500 cursor-pointer">FAQ</li>
-        <li className="hover:text-blue-500 cursor-pointer">Code of Conduct</li>
-        <li className=" text-blue-500 cursor-pointer">Hire from Us</li>
+      <ul className="flex space-x-9 text-gray-700 align-center mr-8">
+        <li className="hover:text-blue-500 cursor-pointer font-semibold">
+          Mentors
+        </li>
+        <li className="hover:text-blue-500 cursor-pointer font-semibold">
+          How it Works
+        </li>
+        <li className="hover:text-blue-500 cursor-pointer font-semibold">
+          Projects
+        </li>
+        <li className="hover:text-blue-500 cursor-pointer font-semibold">
+          Blog
+        </li>
+        <li className="hover:text-blue-500 cursor-pointer font-semibold">
+          FAQ
+        </li>
+        <li className="hover:text-blue-500 cursor-pointer font-semibold">
+          Code of Conduct
+        </li>
+        <li className=" text-blue-500 cursor-pointer font-semibold">
+          Hire from Us
+        </li>
       </ul>
 
       {/* Apply Now Button */}
-      <button className="bg-blue-600 text-white px-2 py-2 rounded-lg hover:bg-blue-700 flex-row ">
-        Apply Now
-        <img src={backarrow} />
-      </button>
+
+      <div className="flex justify-center items-center bg-blue-600 text-white  rounded-lg hover:bg-blue-700 h-18 w-50 mr-14">
+        <text className="text-sm font-semibold py-2 px-2">Apply Now</text>
+        <img src={backarrow} className="h-5 w-5" />
+      </div>
     </nav>
   );
 };
